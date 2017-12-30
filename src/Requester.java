@@ -33,40 +33,57 @@ public class Requester{
 					message = stdin.next();
 					sendMessage(message);
 					
-					if(message.compareToIgnoreCase("1")==0)
-					{
-						message = (String)in.readObject();
-						System.out.println(message);
-						message = stdin.next();
-						sendMessage(message);
+					while(message.compareToIgnoreCase("3")!=0) {
+									
+						if(message.compareToIgnoreCase("1")==0)
+						{
+							message = (String)in.readObject();
+							System.out.println(message);
+							message = stdin.next();
+							sendMessage(message);
+							
+							message = (String)in.readObject();
+							System.out.println(message);
+							message = stdin.next();
+							sendMessage(message);
+							
+							message = (String)in.readObject();
+							System.out.println(message);
+							message = stdin.next();
+							sendMessage(message);
+							
+							message = (String)in.readObject();
+							System.out.println(message);
+							message = stdin.next();
+							sendMessage(message);
+							
+							message = (String)in.readObject();
+							System.out.println(message);
+							message = stdin.next();
+							sendMessage(message);
+							
+							message = (String)in.readObject();
+							System.out.println(message);
+							message = stdin.next();
+							sendMessage(message);	
+							
+							message = (String)in.readObject();
+							System.out.println(message);
+							message = stdin.next();
+							sendMessage(message);
+							
+							message = (String)in.readObject();
+							System.out.println(message);
+							message = stdin.next();
+							sendMessage(message);	
+							
+						}			
 						
 						message = (String)in.readObject();
 						System.out.println(message);
 						message = stdin.next();
 						sendMessage(message);
-						
-						message = (String)in.readObject();
-						System.out.println(message);
-						message = stdin.next();
-						sendMessage(message);
-						
-						message = (String)in.readObject();
-						System.out.println(message);
-						message = stdin.next();
-						sendMessage(message);
-						
-						message = (String)in.readObject();
-						System.out.println(message);
-						message = stdin.next();
-						sendMessage(message);
-						
-						message = (String)in.readObject();
-						System.out.println(message);
-						message = stdin.next();
-						sendMessage(message);				
-						
-					}			
-						
+					}//eow
 				}
 				catch(ClassNotFoundException classNot)
 				{
@@ -97,7 +114,7 @@ public class Requester{
 		try{
 			out.writeObject(msg);
 			out.flush();
-			System.out.println("client>" + msg);
+//			System.out.println("client>" + msg);
 		}
 		catch(IOException ioException){
 			ioException.printStackTrace();
