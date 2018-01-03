@@ -32,58 +32,45 @@ public class Requester{
 					System.out.println(message);
 					message = stdin.next();
 					sendMessage(message);
-					
-					while(message.compareToIgnoreCase("3")!=0) {
 									
-						if(message.compareToIgnoreCase("1")==0)
-						{
-							message = (String)in.readObject();
-							System.out.println(message);
-							message = stdin.next();
-							sendMessage(message);
-							
-							message = (String)in.readObject();
-							System.out.println(message);
-							message = stdin.next();
-							sendMessage(message);
-							
-							message = (String)in.readObject();
-							System.out.println(message);
-							message = stdin.next();
-							sendMessage(message);
-							
-							message = (String)in.readObject();
-							System.out.println(message);
-							message = stdin.next();
-							sendMessage(message);
-							
-							message = (String)in.readObject();
-							System.out.println(message);
-							message = stdin.next();
-							sendMessage(message);
-							
-							message = (String)in.readObject();
-							System.out.println(message);
-							message = stdin.next();
-							sendMessage(message);	
-							
-							message = (String)in.readObject();
-							System.out.println(message);
-							message = stdin.next();
-							sendMessage(message);
-							
-							message = (String)in.readObject();
-							System.out.println(message);
-							message = stdin.next();
-							sendMessage(message);	
-							
-						}			
+					if(message.compareToIgnoreCase("1")==0)
+					{
+						stdin.nextLine();					
+						for (int i = 0; i < 8; i++) {
+							try {
+								// The do while loop will keep running till the user
+								// has successfully registered.
+								do {
+									// Will read in a message such as "Enter name"
+									// and allow the user to enter
+									// a "name" and send it to the server to be
+									// stored.
+									message = (String) in.readObject();
+									System.out.println(message);
+									message = stdin.nextLine();
+									sendMessage(message);
+									message = (String) in.readObject();
+					
+								} while (!message.equals("success"));
+							} catch (ClassNotFoundException classNot) {
+								System.err.println("data received in unknown format");
+							}
+						}
 						
-						message = (String)in.readObject();
+					}
+					else if(message.compareToIgnoreCase("2")==0){
+						
+						message = (String) in.readObject();
 						System.out.println(message);
 						message = stdin.next();
 						sendMessage(message);
-					}//eow
+						
+						//read if its successful or not 
+						message = (String) in.readObject();
+						System.out.println(message);
+						
+
+					}
 				}
 				catch(ClassNotFoundException classNot)
 				{
