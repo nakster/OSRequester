@@ -59,17 +59,73 @@ public class Requester{
 						
 					}
 					else if(message.compareToIgnoreCase("2")==0){
+//					tried to do this way 			
+//						try {
+//							do {
+//								
+//								message = (String) in.readObject();
+//								System.out.println(message);
+//								message = stdin.next();
+//								sendMessage(message);
+//								message = (String) in.readObject();
+//							} while (!(message.compareToIgnoreCase("Success")==0));
+//							
+//							
+//							
+//						} catch (ClassNotFoundException classNot) {
+//							System.err.println("data received in unknown format");
+//						}
+//						
+//						try {
+//							
+//							do {
+//								
+//								message = (String) in.readObject();
+//								System.out.println(message);
+//								message = stdin.next();
+//								sendMessage(message);
+//								message = (String) in.readObject();
+//								System.out.println(message);
+//							} while (!(message.compareToIgnoreCase("pass")==0));						
+//							
+//						} catch (ClassNotFoundException classNot) {
+//							System.err.println("data received in unknown format");
+//						}
 						
+						
+						
+//						message = (String) in.readObject();
+//						System.out.println(message);
+//						message = stdin.next();
+//						sendMessage(message);
+////						message = (String) in.readObject();
+//						
+//						while(!(message.equalsIgnoreCase("success"))) {
+//							
+//							message = (String) in.readObject();
+//							System.out.println(message);
+//							message = stdin.next();
+//							sendMessage(message);
+////							message = (String) in.readObject();
+//							
+//						}						
+						
+						//ask the userName
 						message = (String) in.readObject();
 						System.out.println(message);
 						message = stdin.next();
 						sendMessage(message);
-						
-						//read if its successful or not 
+						//ask the password
 						message = (String) in.readObject();
 						System.out.println(message);
+						message = stdin.next();
+						sendMessage(message);
+						//tells if you logged in or not 
+						message = (String) in.readObject();
+						System.out.println(message);
+						System.out.println();
 						
-
+						
 					}
 				}
 				catch(ClassNotFoundException classNot)
