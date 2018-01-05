@@ -117,6 +117,38 @@ public class Requester{
 
 							}//end of first if statement 
 							else if(message.compareToIgnoreCase("2")==0){
+							
+								message = (String)in.readObject();
+								System.out.println(message);
+								
+								//this asks the type of meal 
+								message = (String)in.readObject();
+								System.out.println(message);
+								message = stdin.next();
+								sendMessage(message);
+								
+								while (!(Integer.parseInt(message) > 0 && Integer.parseInt(message) < 4)) {
+									message = (String)in.readObject();
+									System.out.println(message);
+									message = stdin.next();
+									sendMessage(message);
+
+								}
+								stdin.nextLine();
+								
+								//this asks the type of desc 
+								message = (String)in.readObject();
+								System.out.println(message);
+								message = stdin.nextLine();
+								sendMessage(message);
+								
+								while (!(message.length() < 100)) {
+									message = (String)in.readObject();
+									System.out.println(message);
+									message = stdin.nextLine();
+									sendMessage(message);
+								}
+								
 								
 							}//end of second 
 							
