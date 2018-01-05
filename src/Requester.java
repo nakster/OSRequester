@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class Requester{
 	Socket requestSocket;
 	ObjectOutputStream out;
- 	ObjectInputStream in;
- 	String message="";
- 	String ipaddress;
- 	Scanner stdin;
+	ObjectInputStream in;
+	String message="";
+	String ipaddress;
+	Scanner stdin;
 	Requester(){}
 	void run()
 	{
@@ -32,7 +32,7 @@ public class Requester{
 					System.out.println(message);
 					message = stdin.next();
 					sendMessage(message);
-									
+
 					if(message.compareToIgnoreCase("1")==0)
 					{
 						stdin.nextLine();					
@@ -50,66 +50,15 @@ public class Requester{
 									message = stdin.nextLine();
 									sendMessage(message);
 									message = (String) in.readObject();
-					
+
 								} while (!message.equals("success"));
 							} catch (ClassNotFoundException classNot) {
 								System.err.println("data received in unknown format");
 							}
 						}
-						
+
 					}
-					else if(message.compareToIgnoreCase("2")==0){
-//					tried to do this way 			
-//						try {
-//							do {
-//								
-//								message = (String) in.readObject();
-//								System.out.println(message);
-//								message = stdin.next();
-//								sendMessage(message);
-//								message = (String) in.readObject();
-//							} while (!(message.compareToIgnoreCase("Success")==0));
-//							
-//							
-//							
-//						} catch (ClassNotFoundException classNot) {
-//							System.err.println("data received in unknown format");
-//						}
-//						
-//						try {
-//							
-//							do {
-//								
-//								message = (String) in.readObject();
-//								System.out.println(message);
-//								message = stdin.next();
-//								sendMessage(message);
-//								message = (String) in.readObject();
-//								System.out.println(message);
-//							} while (!(message.compareToIgnoreCase("pass")==0));						
-//							
-//						} catch (ClassNotFoundException classNot) {
-//							System.err.println("data received in unknown format");
-//						}
-						
-						
-						
-//						message = (String) in.readObject();
-//						System.out.println(message);
-//						message = stdin.next();
-//						sendMessage(message);
-////						message = (String) in.readObject();
-//						
-//						while(!(message.equalsIgnoreCase("success"))) {
-//							
-//							message = (String) in.readObject();
-//							System.out.println(message);
-//							message = stdin.next();
-//							sendMessage(message);
-////							message = (String) in.readObject();
-//							
-//						}						
-						
+					else if(message.compareToIgnoreCase("2")==0){						
 						//ask the userName
 						message = (String) in.readObject();
 						System.out.println(message);
@@ -124,8 +73,54 @@ public class Requester{
 						message = (String) in.readObject();
 						System.out.println(message);
 						System.out.println();
-						
-						
+
+						do {	
+							//for the second menu
+							message = (String) in.readObject();
+							System.out.println(message);
+							message = stdin.next();
+							sendMessage(message);
+
+							if(message.compareToIgnoreCase("1")==0){
+
+								message = (String)in.readObject();
+								System.out.println(message);
+
+								//this asks the type of mode 
+								message = (String)in.readObject();
+								System.out.println(message);
+								message = stdin.next();
+								sendMessage(message);
+
+								while (!(Integer.parseInt(message) > 0 && Integer.parseInt(message) < 4)) {
+									message = (String)in.readObject();
+									System.out.println(message);
+									message = stdin.next();
+									sendMessage(message);
+
+								}
+
+
+								//for the duration 
+								message = (String)in.readObject();
+								System.out.println(message);
+								message = stdin.next();
+								sendMessage(message);
+
+								while (!(Integer.parseInt(message) > 0 && Integer.parseInt(message) < 101)) {
+									message = (String)in.readObject();
+									System.out.println(message);
+									message = stdin.next();
+									sendMessage(message);
+
+								}
+
+							}//end of first if statement 
+							else if(message.compareToIgnoreCase("2")==0){
+								
+							}//end of second 
+							
+						}while(!message.equals("3"));
 					}
 				}
 				catch(ClassNotFoundException classNot)
@@ -157,7 +152,7 @@ public class Requester{
 		try{
 			out.writeObject(msg);
 			out.flush();
-//			System.out.println("client>" + msg);
+			//			System.out.println("client>" + msg);
 		}
 		catch(IOException ioException){
 			ioException.printStackTrace();
